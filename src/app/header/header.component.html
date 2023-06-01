@@ -1,0 +1,18 @@
+<header>
+  <div class="container">
+    <a routerLink="/" class="logo">Letterboxd</a>
+  <nav>
+    <ul>
+      <li class="menu-container">
+        <a routerLink="/profile/{{1}}">Clement</a>
+        <a routerLink="films">Films</a>
+        <a routerLink="profile">Membres</a>
+        <input #s type="text" placeholder="Recherchez votre film!"
+        (keyup.enter)="search(s.value)"
+        [value]="searchTerm"/>
+       <button (click)="search(s.value)">🔍</button>
+      </li>
+    </ul>
+  </nav>
+  </div>
+</header>
