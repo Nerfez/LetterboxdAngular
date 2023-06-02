@@ -39,8 +39,8 @@ export class NewFilmComponent implements OnInit {
       }))
   );
 }
-onSubmitForm() {
-  /*this.filmService.addFilm(this.filmForm.value).pipe(
+onSubmitForm() {/*
+  this.filmService.addFilm(this.filmForm.value).pipe(
       tap(() => this.router.navigateByUrl('/film'))
   ).subscribe();*/
 }
