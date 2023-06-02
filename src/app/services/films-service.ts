@@ -51,6 +51,28 @@ location: "Etats-Unis"
   imageUrl: 'https://m.media-amazon.com/images/M/MV5BNDMxMTc2N2ItMjI5Ny00MGFiLThkOTYtZTIyYTZhMzA2NjIzXkEyXkFqcGdeQXVyNjc3MjQzNTI@._V1_FMjpg_UX1000_.jpg',
   buttonText: 'Unlike!',
   price: 15.99
+},
+{
+  id: 5,
+  title: "Asteroid City",
+real: "Wes Anderson",
+  description: "Asteroid City est une ville minuscule, en plein désert, dans le sud-ouest des États-Unis. Nous sommes en 1955. Le site est surtout célèbre pour son gigantesque cratère de météorite et son observatoire astronomique à proximité.",
+  imageUrl: "https://fr.web.img6.acsta.net/pictures/23/05/12/12/18/5000360.jpg",
+  createdDate: new Date("2023-07-15"),
+  stars: 2,
+  buttonText: "Like!",
+price: 20.99
+},
+{
+  id: 6,
+  title: "Le secret des poignards volants",
+real: "Zhang Yimou",
+  description: "Aucune données pour le film.",
+  imageUrl: "https://fr.web.img6.acsta.net/medias/nmedia/18/35/32/32/18397195.jpg",
+  createdDate: new Date("2004-09-18"),
+  stars: 4,
+  buttonText: "Unlike!",
+price: 15.99
 }
 ];
 

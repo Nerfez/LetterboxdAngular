@@ -11,7 +11,9 @@ import { HomeComponent } from './home/home.component';
 import { SingleFilmComponent } from './single-film/single-film.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NewFilmComponent } from './new-film/new-film.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,11 +21,14 @@ import { ProfileComponent } from './profile/profile.component';
     HomeComponent,
     SingleFilmComponent,
     LandingPageComponent,
-    ProfileComponent
+    ProfileComponent,
+    NewFilmComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     //ajout date en fr

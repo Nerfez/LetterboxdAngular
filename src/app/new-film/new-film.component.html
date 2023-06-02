@@ -1,0 +1,30 @@
+<form [formGroup]="filmForm">
+  <div class="form-group">
+      <label for="title">Titre</label>
+      <input id="title" type="text" formControlName="title">
+  </div>
+  <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" type="text" formControlName="description" rows="4">
+      </textarea>
+  </div>
+  <div class="form-group">
+      <label for="imageUrl">URL de l'image</label>
+      <input id="imageUrl" type="text" formControlName="imageUrl">
+  </div>
+  <div class="form-group">
+      <label for="location">Lieu</label>
+      <input id="location" type="text" formControlName="location">
+  </div>
+  <div class="action-buttons">
+      <button type="submit" (click)="onSubmitForm()"
+      [disabled]="filmForm.invalid">Enregistrer</button>
+  </div>
+</form>
+<div class="face-snap-card" *ngIf="filmPreview$ | async as film">
+  <h2>{{ film.title | uppercase }}</h2>
+  <p>Mis en ligne {{ film.createdDate | date }}</p>
+  <img [src]="film.imageUrl" [alt]="film.title">
+  <p>{{ film.description }}</p>
+  <p *ngIf="film.location">Photo prise à {{ film.location }}</p>
+</div>
