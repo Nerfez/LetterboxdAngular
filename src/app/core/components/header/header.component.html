@@ -3,9 +3,18 @@
     <a routerLink="/" class="logo">Letterboxd</a>
   <nav>
     <ul>
-      <li class="menu-container">
+      <li>
         <a routerLink="films/ajouter">Ajouter</a>
-        <a routerLink="/profile/{{1}}">Clement</a>
+      </li>
+      <li class="menu-container">
+        <a>Clement</a>
+        <div class="menu">
+          <a routerLink="/profile/{{1}}">Profil</a>
+          <a (click)="logout()">Deconnexion</a>
+        </div>
+      </li>
+        <li>
+          <a routerLink="films/ajouter">Ajouter</a>
         <a routerLink="films">Films</a>
         <a routerLink="profile">Membres</a>
         <input #s type="text" placeholder="Recherchez votre film!"

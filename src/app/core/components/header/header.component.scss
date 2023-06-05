@@ -2,8 +2,6 @@
 div {
   display: flex;
   justify-content: center;
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
 }
 
 input {
@@ -75,4 +73,23 @@ ul{
 ul a {
   padding: 1rem;
   display: inline-block;
+}
+
+.menu{
+  position: absolute;
+  z-index: 1;
+  background: whitesmoke;
+  display: none;
+}
+
+.menu-container{
+  position: relative;
+}
+
+.menu-container:hover .menu{
+  display: block;
+}
+
+.menu a{
+  width: 85%;
 }
