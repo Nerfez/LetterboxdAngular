@@ -1,6 +1,6 @@
-<header>
+<header [ngClass]="{'menuBorder': isLogged===true}">
   <div class="container">
-    <a routerLink="/" class="logo">Letterboxd</a>
+    <a routerLink="/" class="logo"></a>
   <nav>
     <ul>
       <li *ngIf='isLogged'>

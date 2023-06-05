@@ -38,9 +38,12 @@ div button:hover{
 
 header{
   position: relative;
-  background: #1C1C1C;
   padding: 0;
-  border-bottom: 1px solid #00b020;
+}
+
+.menuBorder {
+  border-bottom: 3px solid #00b020;
+  background: #1C1C1C;
 }
 
 a{
@@ -60,9 +63,9 @@ a:hover{
   justify-content: space-between;
 }
 
-a.logo{
-  font-weight: bold;
-  padding: 1rem;
+a.logo {
+  width: 150px;
+  background: url('/assets/logoLetterboxd.png') no-repeat;
 }
 
 ul{

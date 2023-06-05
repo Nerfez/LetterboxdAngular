@@ -1,14 +1,12 @@
-<form [formGroup]="loginForm">
+<form class="container" [formGroup]="loginForm">
   <div class="form-group">
-      <label for="login">Titre</label>
+      <label for="login">Pseudo :</label>
       <input id="login" type="text" formControlName="login">
   </div>
   <div class="form-group">
-      <label for="password">Lieu</label>
+      <label for="password">Mot de passe :</label>
       <input id="password" type="password" formControlName="password">
   </div>
-  <div class="action-buttons">
-      <button type="submit" (click)="onLogin()"
+      <button class="button" (click)="onLogin()"
       [disabled]="loginForm.invalid">Connexion</button>
-  </div>
 </form>
