@@ -6,4 +6,8 @@ export class Profile {
   bio!: string;
   filmsVu!: number;
   imageUrl!: string;
+  filmpref1!: string;
+  filmpref2!: string;
+  filmpref3!: string;
+  filmpref4!: string;
 }

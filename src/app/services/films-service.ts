@@ -75,6 +75,17 @@ real: "Zhang Yimou",
   stars: 4,
   buttonText: "Unlike!",
 price: 15.99
+},
+{
+  id: 7,
+  title: "Kids Return",
+real: "Takeshi Kitano",
+  description: "Aucune données pour le film.",
+  imageUrl: "https://fr.web.img6.acsta.net/pictures/17/07/17/12/38/267316.jpg",
+  createdDate: new Date("1996-09-18"),
+  stars: 5,
+  buttonText: "Unlike!",
+price: 15.99
 }
 ];
 
@@ -147,6 +158,15 @@ price: 15.99
 
     getAllFilmsBySearchTerm(searchTerm:string){
       return this.getAllFilms().filter(films => films.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    }
+
+    getFilmByName(filmName: string): Film {
+      const film = this.films.find(film => film.title === filmName);
+      if (!film) {
+          throw new Error('Film introuvable');
+      } else {
+          return film;
+      }
     }
 
 
