@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Film } from '../models/Film';
+import { HttpClient } from '@angular/common/http';
+import { Observable, map, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -76,7 +78,44 @@ price: 15.99
 }
 ];
 
-  constructor() {}
+  constructor(private http:HttpClient) {}
+
+  addFilmToDB(formValue: { title: string, description: string, imageUrl: string, location?: string }): Observable<Film> {
+    return this.getAllFilmsFromDB().pipe(
+         map(films => [...films].sort((a,b) => a.id - b.id)),
+         map(sortedFilms => sortedFilms[sortedFilms.length - 1]),
+         map(previousFilm => ({
+            ...formValue,
+            snaps: 0,
+            createdDate: new Date(),
+            id: previousFilm.id + 1
+        })),
+        switchMap(newFilm => this.http.post<Film>(
+            'http://localhost:3000/films',
+            newFilm)
+        )
+    );
+  }
+
+  getAllFilmsFromDB(): Observable<Film[]> {
+    return this.http.get<Film[]>('http://localhost:3000/films');
+  }
+
+  getFilmsByIdFromDB(filmsId: number): Observable<Film> {
+    return this.http.get<Film>(`http://localhost:3000/films/${filmsId}`);
+  }
+  filmByIdFromDB(filmId: number, filmType: 'Like!' | 'Unlike!'): Observable<Film> {
+    return this.getFilmsByIdFromDB(filmId).pipe(
+        map(films => ({
+            ...films,
+            films: films.stars + (filmType === 'Like!' ? 1 : -1)
+        })),
+        switchMap(updatedFilm => this.http.put<Film>(
+            `http://localhost:3000/films/${filmId}`,
+            updatedFilm)
+        )
+    );
+}
 
     getAllFilms():Film[]{
     return this.films;

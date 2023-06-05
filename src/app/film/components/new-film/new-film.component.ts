@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable, map, tap } from 'rxjs';
-import { Router } from '@angular/router';
-import { Film } from '../models/Film';
-import { FilmsService } from '../services/films-service';
+import { Observable, map } from 'rxjs';
+import { Film } from 'src/app/models/Film';
 
 @Component({
   selector: 'app-new-film',
@@ -16,9 +14,7 @@ export class NewFilmComponent implements OnInit {
   filmPreview$!: Observable<Film>;
   urlRegex!: RegExp;
 
-  constructor(private formBuilder: FormBuilder,
-    private filmService: FilmsService,
-    private router: Router) { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.urlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;

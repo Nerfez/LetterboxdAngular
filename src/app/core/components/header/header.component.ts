@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Profile } from '../models/Profile';
-import { ProfileService } from '../services/profile-service';
+import { ProfileService } from 'src/app/services/profile-service';
 
 @Component({
   selector: 'app-header',
