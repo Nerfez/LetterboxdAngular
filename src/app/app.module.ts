@@ -12,12 +12,14 @@ import { FilmModule } from './film/film.module';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { HeaderComponent } from './core/components/header/header.component';
+import { SingleProfileComponent } from './single-profile/single-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LandingPageComponent,
-    ProfileComponent
+    ProfileComponent,
+    SingleProfileComponent
   ],
   imports: [
     BrowserModule,

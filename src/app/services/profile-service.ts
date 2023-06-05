@@ -38,6 +38,15 @@ profile: Profile[]= [ {
     return this.profile;
     }
 
+    getProfileById(profileId: number):Profile{
+      const profile = this.profile.find(profile => profile.id === profileId);
+      if (!profile) {
+          throw new Error('Profil introuvable');
+      } else {
+          return profile;
+      }
+    }
+
     getProfileByPseudo(pseudo: string | null):Profile{
       const profile = this.profile.find(profile => profile.pseudo === pseudo);
       if (!profile) {

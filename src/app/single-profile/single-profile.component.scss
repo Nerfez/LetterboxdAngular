@@ -1,0 +1,49 @@
+ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+}
+
+.MyFavMovies {
+  justify-content: center;
+}
+
+.img {
+  height: 10rem;
+  width: 10rem;
+  border: 1px solid whitesmoke;
+  border-radius: 50%;
+  margin: 0.5rem;
+  display: flex;
+  object-fit: fill;
+}
+
+.movie {
+  height: 22.5rem;
+  width: 20rem;
+  border: 1px solid whitesmoke;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #c8d4e0;
+}
+
+.bio {
+  height: 35rem;
+  width: 100%;
+  border: 1px solid whitesmoke;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #c8d4e0;
+}
+
+h1 {
+  color: white;
+}
