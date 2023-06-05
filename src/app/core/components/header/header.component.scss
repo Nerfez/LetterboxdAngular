@@ -40,15 +40,16 @@ header{
   position: relative;
   background: #1C1C1C;
   padding: 0;
-  border-bottom: 1px solid #e72929;
+  border-bottom: 1px solid #00b020;
 }
 
 a{
-  color:#e72929;
+  color:#00b020;
+  text-decoration: none;
 }
 
 a:hover{
-  background: #e72929;
+  background: #00b020;
   color: white;
   cursor: pointer;
 }

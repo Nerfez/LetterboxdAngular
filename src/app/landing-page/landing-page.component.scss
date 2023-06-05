@@ -1,0 +1,33 @@
+h2 {
+  color: #c8d4e0;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.txt {
+  padding-top: 10rem;
+}
+
+.button {
+  position: absolute;
+  left: 60%;
+  background: #00b020;
+    border: none;
+    border-radius: 3px;
+    color: #c8d4e0;
+    cursor: pointer;
+    font-family: Graphik-Semibold-Web,sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: .075em;
+    line-height: 12px;
+    padding: 9px 12px 8px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.button:hover {
+  opacity: 1;
+  color: #f4fcf0;
+}
