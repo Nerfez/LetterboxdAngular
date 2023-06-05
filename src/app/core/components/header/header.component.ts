@@ -34,4 +34,8 @@ export class HeaderComponent implements OnInit{
     this.router.navigateByUrl('');
   }
 
+  get isLogged(){
+    return this.auth.loggedIn;
+}
+
 }
