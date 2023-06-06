@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let profiles of profiles$ | async">
-    <a routerLink="/profile/{{profiles.id}}">
+    <a routerLink="/profiles/{{profiles.id}}">
       <img [src]="profiles.imageUrl" [alt]="profiles.pseudo"/>
     </a>
     <a class="icon-watched">

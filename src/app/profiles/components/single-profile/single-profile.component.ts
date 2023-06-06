@@ -93,5 +93,7 @@ export class SingleProfileComponent implements OnInit {
       }));
 
     });
-  }
+
+  }//FIN NGONIT
+
 }

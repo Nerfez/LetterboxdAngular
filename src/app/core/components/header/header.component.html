@@ -9,7 +9,7 @@
       <li *ngIf='isLogged' class="menu-container">
         <a>Clement</a>
         <div class="menu">
-          <a routerLink="/profile/{{1}}">Profil</a>
+          <a (click)="myProfile()">Profil</a>
           <a (click)="logout()">Deconnexion</a>
         </div>
       </li>
