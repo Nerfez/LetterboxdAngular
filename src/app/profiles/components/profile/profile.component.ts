@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from '../services/profile-service';
 import { ActivatedRoute } from '@angular/router';
-import { Profile } from '../models/Profile';
-import { AuthService } from '../services/auth-service';
-import { Film } from '../models/Film';
-import { FilmsService } from '../services/films-service';
+import { Film } from 'src/app/models/Film';
+import { Profile } from 'src/app/models/Profile';
+import { AuthService } from 'src/app/services/auth-service';
+import { FilmsService } from 'src/app/services/films-service';
+import { ProfileService } from 'src/app/services/profile-service';
 
 @Component({
   selector: 'app-profile',
@@ -20,10 +20,6 @@ export class ProfileComponent implements OnInit{
     private auth: AuthService, private filmService: FilmsService){
     activatedRoute.params.subscribe((params) => {
       this.profile = this.profileService.getProfileByPseudo(auth.getPseudo());
-      this.films.push(this.filmService.getFilmByName(this.profile.filmpref1));
-      this.films.push(this.filmService.getFilmByName(this.profile.filmpref2));
-      this.films.push(this.filmService.getFilmByName(this.profile.filmpref3));
-      this.films.push(this.filmService.getFilmByName(this.profile.filmpref4));
     });
 }
 

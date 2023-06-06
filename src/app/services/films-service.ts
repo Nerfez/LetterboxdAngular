@@ -115,7 +115,8 @@ price: 15.99
   getFilmsByIdFromDB(filmsId: number): Observable<Film> {
     return this.http.get<Film>(`http://localhost:3000/films/${filmsId}`);
   }
-  filmByIdFromDB(filmId: number, filmType: 'Like!' | 'Unlike!'): Observable<Film> {
+
+  changeFilmByIdFromDB(filmId: number, filmType: 'Like!' | 'Unlike!'): Observable<Film> {
     return this.getFilmsByIdFromDB(filmId).pipe(
         map(films => ({
             ...films,
