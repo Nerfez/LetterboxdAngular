@@ -47,3 +47,61 @@ ul {
 h1 {
   color: white;
 }
+
+
+button {
+  margin: auto;
+  margin-right: 2rem;
+  right: 0;
+  width: 10%;
+  background: #00b020;
+    border: none;
+    border-radius: 3px;
+    color: #c8d4e0;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: .075em;
+    line-height: 12px;
+    padding: 9px 12px 8px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+button:hover {
+  opacity: 1;
+  color: #f4fcf0;
+}
+
+.button-changer {
+  display: flex;
+}
+
+textarea {
+  background-color: #dddddd;
+  color: #666666;
+  padding: 1em;
+  margin-left: 2rem;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  outline: none;
+  font-family: "Heebo", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  width: 90%;
+  height: 100px;
+  transition: all 0.2s;
+}
+
+textarea:hover {
+  cursor: pointer;
+  background-color: #eeeeee;
+}
+
+textarea:focus {
+  cursor: text;
+  color: #333333;
+  background-color: white;
+  border-color: #333333;
+}

@@ -6,7 +6,7 @@ import { SingleProfileComponent } from './components/single-profile/single-profi
 import { ListeProfileComponent } from './components/liste-profile/liste-profile.component';
 
 const routes: Routes = [
-
+  {path:'profile/:id', component:ProfileComponent, canActivate: [AuthGuard]},
   {path:'profiles/:id', component:SingleProfileComponent, canActivate: [AuthGuard]},
   {path:'profiles', component:ListeProfileComponent, canActivate: [AuthGuard]}
 ];

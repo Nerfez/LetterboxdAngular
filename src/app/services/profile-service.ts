@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Profile } from '../models/Profile';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, switchMap } from 'rxjs';
+import { Observable, filter, map, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -92,6 +92,16 @@ addProfileToDB(formValue: { pseudo: string, pass: string}): Observable<Profile> 
           newFilm)
       )
   );
+}
+
+changeBioToDB(profile: Profile): Observable<Profile> {
+  return this.getProfilesByIdFromDB(profile.id).pipe(
+    map(({ bio }) => bio),
+    map(val => val + profile.bio),
+      switchMap(newFilm => this.http.post<Profile>(
+          'http://localhost:3000/profiles',
+          newFilm)
+      ));
 }
 
 getAllProfilesFromDB(): Observable<Profile[]> {

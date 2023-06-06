@@ -15,6 +15,8 @@ import { ProfileService } from 'src/app/services/profile-service';
 export class ProfileComponent implements OnInit{
 
   profile!: Profile;
+  isModif!: boolean;
+  profileId!: number;
   filmsVu !: number;
   pseudo !: string;
   imageUrl !: string;
@@ -27,23 +29,24 @@ export class ProfileComponent implements OnInit{
   constructor(private profileService: ProfileService,
     private auth:AuthService,
     private filmService: FilmsService) {
+//RECUPERER PROFILE
+this.profileService.getAllProfilesFromDB().pipe(
+  concatMap( pseudo  => pseudo),
+  filter(profile => profile.pseudo === this.auth.getPseudo())
 
+).subscribe((response) => {
+  this.profile = response;
+  this.profileId = response.id;
+});
     }
 
 ngOnInit(): void {
+  this.isModif = false;
 
-  //RECUPERER PROFILE
-  this.profileService.getAllProfilesFromDB().pipe(
-    concatMap( pseudo  => pseudo),
-    filter(profile => profile.pseudo === this.auth.getPseudo())
-
-  ).subscribe((response) => {
-    this.profile = response;
-    console.log("pofile "+response.id);
-  });
+  setTimeout(() =>{
 
 //RECUPERER FILMS 1
-this.profileService.getProfilesByIdFromDB(this.profile.id).pipe(
+this.profileService.getProfilesByIdFromDB(this.profileId).pipe(
   map(({ filmpref1 }) => filmpref1),
 
 ).subscribe((response) => {
@@ -52,13 +55,12 @@ this.profileService.getProfilesByIdFromDB(this.profile.id).pipe(
 
   ).subscribe((reponse) => {
     this.film1 = reponse;
-    console.log("film1 : "+reponse);
   }));
 
 });
 
 //FILM2
-this.profileService.getProfilesByIdFromDB(this.profile.id).pipe(
+this.profileService.getProfilesByIdFromDB(this.profileId).pipe(
   map(({ filmpref2 }) => filmpref2),
 
 ).subscribe((response) => {
@@ -72,7 +74,7 @@ this.profileService.getProfilesByIdFromDB(this.profile.id).pipe(
 });
 
 //FILM3
-this.profileService.getProfilesByIdFromDB(this.profile.id).pipe(
+this.profileService.getProfilesByIdFromDB(this.profileId).pipe(
   map(({ filmpref3 }) => filmpref3),
 
 ).subscribe((response) => {
@@ -87,7 +89,7 @@ this.profileService.getProfilesByIdFromDB(this.profile.id).pipe(
 
 
 //FILM4
-this.profileService.getProfilesByIdFromDB(this.profile.id).pipe(
+this.profileService.getProfilesByIdFromDB(this.profileId).pipe(
   map(({ filmpref4 }) => filmpref4),
 
 ).subscribe((response) => {
@@ -99,7 +101,22 @@ this.profileService.getProfilesByIdFromDB(this.profile.id).pipe(
   }));
 
 });
-
+}, 1000);
 }//FIN NGONIT
+
+modifierBio():void {
+  this.isModif = true;
+}
+
+modifierBioChangement(areaInput: string): void {
+  this.profile.bio = areaInput;
+  this.profileService.changeBioToDB(this.profile);
+  console.log("changement : " + areaInput);
+  this.isModif = false;
+}
+
+get modif(){
+  return this.isModif;
+}
 
 }

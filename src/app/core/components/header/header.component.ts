@@ -45,7 +45,7 @@ this.profileService.getAllProfilesFromDB().pipe(
   }
 
   myProfile(): void {
-    this.router.navigateByUrl('/profiles/'+this.profile.id);
+    this.router.navigateByUrl('/profile/'+this.profile.id);
   }
 
   search(term:string):void{

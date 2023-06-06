@@ -21,3 +21,10 @@
       [disabled]="filmForm.invalid">Enregistrer</button>
   </div>
 </form>
+<div class="face-snap-card" *ngIf="filmPreview$ | async as film">
+  <h2>{{ film.title | uppercase }}</h2>
+  <p>Mis en ligne {{ film.createdDate | date: 'à HH:mm, le d MMMM yyyy' }}</p>
+  <img [src]="film.imageUrl" [alt]="film.title">
+  <p>{{ film.description }}</p>
+  <p *ngIf="film.location">Photo prise à {{ film.location }}</p>
+</div>

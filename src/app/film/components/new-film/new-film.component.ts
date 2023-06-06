@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable, map } from 'rxjs';
+import { Router } from '@angular/router';
+import { Observable, map, tap } from 'rxjs';
 import { Film } from 'src/app/models/Film';
+import { FilmsService } from 'src/app/services/films-service';
 
 @Component({
   selector: 'app-new-film',
@@ -14,7 +16,8 @@ export class NewFilmComponent implements OnInit {
   filmPreview$!: Observable<Film>;
   urlRegex!: RegExp;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private filmService:FilmsService,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.urlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;
@@ -35,9 +38,9 @@ export class NewFilmComponent implements OnInit {
       }))
   );
 }
-onSubmitForm() {/*
-  this.filmService.addFilm(this.filmForm.value).pipe(
-      tap(() => this.router.navigateByUrl('/film'))
-  ).subscribe();*/
+onSubmitForm() {
+  this.filmService.addFilmToDB(this.filmForm.value).pipe(
+      tap(() => this.router.navigateByUrl('/films'))
+  ).subscribe();
 }
 }

@@ -97,7 +97,10 @@ price: 15.99
          map(sortedFilms => sortedFilms[sortedFilms.length - 1]),
          map(previousFilm => ({
             ...formValue,
-            snaps: 0,
+            real: "test",
+            buttonText: "Like!",
+            price: 20.99,
+            stars: 0,
             createdDate: new Date(),
             id: previousFilm.id + 1
         })),
