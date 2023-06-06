@@ -34,14 +34,18 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(): void {
+//RECUPERER PROFILE
+this.profileService.getAllProfilesFromDB().pipe(
+  concatMap( pseudo  => pseudo),
+  filter(profile => profile.pseudo === this.auth.getPseudo())
 
+).subscribe((response) => {
+  this.profile = response;
+});
   }
 
   myProfile(): void {
     this.router.navigateByUrl('/profiles/'+this.profile.id);
-    setTimeout(function () {
-      window.location.reload();
-  }, 400);
   }
 
   search(term:string):void{
@@ -53,6 +57,10 @@ export class HeaderComponent implements OnInit{
     this.auth.logout();
     this.router.navigateByUrl('');
   }
+
+  get isAdminLogged(){
+    return this.auth.AdminloggedIn;
+}
 
   get isLogged(){
     return this.auth.loggedIn;

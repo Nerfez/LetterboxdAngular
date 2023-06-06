@@ -3,11 +3,16 @@
     <a routerLink="/" class="logo"></a>
   <nav>
     <ul>
-      <li *ngIf='isLogged'>
-        <a routerLink="films/ajouter">Ajouter</a>
+      <li *ngIf='isAdminLogged' class="menu-container">
+        <a>Admin</a>
+        <div class="menu">
+          <a routerLink="films/ajouter">Film</a>
+          <a routerLink="films/ajouter">Membre</a>
+          <a (click)="logout()">Deconnexion</a>
+        </div>
       </li>
       <li *ngIf='isLogged' class="menu-container">
-        <a>Clement</a>
+        <a>Utilisateur</a>
         <div class="menu">
           <a (click)="myProfile()">Profil</a>
           <a (click)="logout()">Deconnexion</a>
