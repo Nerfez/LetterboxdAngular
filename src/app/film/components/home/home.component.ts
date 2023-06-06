@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Film } from 'src/app/models/Film';
 import { FilmsService } from 'src/app/services/films-service';
 
@@ -10,6 +11,7 @@ import { FilmsService } from 'src/app/services/films-service';
 })
 export class HomeComponent implements OnInit{
   films:Film[]=[];
+  films$!: Observable<Film[]>;
   dropDownData: string[] = ['croissant', 'décroissant', 'noteLow', 'noteUp'];
 
   constructor(private filmsService:FilmsService, activatedRoute:ActivatedRoute){
@@ -22,6 +24,7 @@ export class HomeComponent implements OnInit{
 }
 
   ngOnInit(): void {
+    this.films$ = this.filmsService.getAllFilmsFromDB();
 
   }
 

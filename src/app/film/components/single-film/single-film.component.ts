@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable, filter, map } from 'rxjs';
 import { Film } from 'src/app/models/Film';
 import { FilmsService } from 'src/app/services/films-service';
 
@@ -16,7 +17,10 @@ export class SingleFilmComponent implements OnInit{
 
                 ngOnInit(): void {
                   const filmId = +this.route.snapshot.params['id'];
-                this.film = this.filmService.getFilmById(filmId);
-                }
-
+                //RECUPERER FILMS 1
+      (this.filmService.getFilmsByIdFromDB(filmId).pipe(
+      ).subscribe((reponse) => {
+        this.film = reponse;
+      }));
+    }
 }

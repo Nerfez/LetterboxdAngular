@@ -9,7 +9,7 @@
   </select>
   </ul>
   <ul>
-    <li *ngFor="let films of films">
+    <li *ngFor="let films of films$ | async">
       <a routerLink="/films/{{films.id}}">
         <img [src]="films.imageUrl" [alt]="films.title"/>
       </a>
