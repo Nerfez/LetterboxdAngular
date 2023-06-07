@@ -110,7 +110,7 @@ modifierBio():void {
 
 modifierBioChangement(areaInput: string): void {
   this.profile.bio = areaInput;
-  this.profileService.changeBioToDB(this.profile);
+  this.profileService.changeProfileToDB(this.profile);
   console.log("changement : " + areaInput);
   this.isModif = false;
 }
