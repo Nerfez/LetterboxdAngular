@@ -10,12 +10,17 @@ ul {
   justify-content: center;
 }
 
-.img {
+.imgProfile {
   height: 10rem;
   width: 10rem;
   border: 1px solid whitesmoke;
   border-radius: 50%;
   margin: 0.5rem;
+  object-fit: fill;
+  display: flex;
+}
+
+li a img {
   display: flex;
   object-fit: fill;
 }
@@ -27,9 +32,7 @@ ul {
   border-radius: 1rem;
   margin: 0.5rem;
   display: flex;
-  flex-direction: column;
   overflow: hidden;
-  color: #c8d4e0;
 }
 
 .bio {

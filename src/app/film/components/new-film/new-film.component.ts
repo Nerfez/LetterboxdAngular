@@ -23,17 +23,21 @@ export class NewFilmComponent implements OnInit {
     this.urlRegex = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)/;
     this.filmForm = this.formBuilder.group({
         title: [null, [Validators.required]],
+        real: [null, [Validators.required]],
         description: [null, [Validators.required]],
         imageUrl: [null, [Validators.required, Validators.pattern(this.urlRegex)]],
-        location: [null]
+        date: [null, [Validators.required]],
+        location: [null],
     },{
       updateOn: 'blur'
     });
     this.filmPreview$ = this.filmForm.valueChanges.pipe(
       map(formValue => ({
           ...formValue,
-          createdDate: new Date(),
-          snaps: 0,
+          createdDate: new Date(formValue.date),
+          price: 0,
+          buttonText: "Like!",
+          stars: 0,
           id: 0
       }))
   );
