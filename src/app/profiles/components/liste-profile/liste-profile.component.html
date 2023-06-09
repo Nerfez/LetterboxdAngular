@@ -3,8 +3,15 @@
     <a routerLink="/profiles/{{profiles.id}}">
       <img [src]="profiles.imageUrl" [alt]="profiles.pseudo"/>
     </a>
+    <h3>{{profiles.pseudo}}</h3>
     <a class="icon-watched">
       <span class="icon">{{ profiles.filmsVu }}</span>
+    </a>
+    <a class="icon-listed">
+      <span class="icon">{{ 12 }}</span>
+    </a>
+    <a class="icon-liked">
+      <span class="icon">{{ 40 }}</span>
     </a>
   </li>
 </ul>

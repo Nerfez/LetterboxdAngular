@@ -1,6 +1,6 @@
 <ul>
   <li>
-    <a class="img" style="background: url('{{ profile.imageUrl }}') no-repeat;"></a>
+    <img class="imgProfile" [src]="profile.imageUrl">
   </li>
   <li><h1>{{ profile.pseudo }}</h1></li>
   <li class="bio">
@@ -9,25 +9,25 @@
   <ul class="MyFavMovies">
     <li class="movie">
       <a routerLink="/films/{{film1.id}}">
-        <img [src]="film1.imageUrl" [alt]="film1.title"/>
+        <img class="affiche" [src]="film1.imageUrl" [alt]="film1.title"/>
       </a>
     </li>
 
     <li class="movie">
       <a routerLink="/films/{{film2.id}}">
-        <img [src]="film2.imageUrl" [alt]="film2.title"/>
+        <img class="affiche" [src]="film2.imageUrl" [alt]="film2.title"/>
       </a>
     </li>
 
     <li class="movie">
       <a routerLink="/films/{{film3.id}}">
-        <img [src]="film3.imageUrl" [alt]="film3.title"/>
+        <img class="affiche" [src]="film3.imageUrl" [alt]="film3.title"/>
       </a>
     </li>
 
     <li class="movie">
       <a routerLink="/films/{{film4.id}}">
-        <img [src]="film4.imageUrl" [alt]="film4.title"/>
+        <img class="affiche" [src]="film4.imageUrl" [alt]="film4.title"/>
       </a>
     </li>
 </ul>
