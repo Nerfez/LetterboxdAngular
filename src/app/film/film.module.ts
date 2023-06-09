@@ -8,12 +8,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { registerLocaleData } from '@angular/common';
 import * as fr from '@angular/common/locales/fr';
 import { HttpClientModule } from '@angular/common/http';
+import { ModifFilmComponent } from './components/modif-film/modif-film.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     NewFilmComponent,
-    SingleFilmComponent
+    SingleFilmComponent,
+    ModifFilmComponent
   ],
   imports: [
     CommonModule,

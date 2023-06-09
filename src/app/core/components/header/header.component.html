@@ -6,8 +6,9 @@
       <li *ngIf='isAdminLogged' class="menu-container">
         <a>Admin</a>
         <div class="menu">
-          <a routerLink="ajouter">Film</a>
-          <a routerLink="ajouter">Membre</a>
+          <a routerLink="ajouterFilm">Film - ajout</a>
+          <a routerLink="modifierFilm">Film - modif</a>
+          <a routerLink="ajouterMembre">Membre</a>
           <a (click)="logout()">Deconnexion</a>
         </div>
       </li>

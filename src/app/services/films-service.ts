@@ -114,6 +114,11 @@ export class FilmsService {
     );
   }
 
+  changeFilmToDB(myFilm: Film): void {
+    this.http.put(`http://localhost:3000/films/${myFilm.id}`, myFilm)
+    .subscribe();
+  }
+
   getAllFilmsFromDB(): Observable<Film[]> {
     return this.http.get<Film[]>('http://localhost:3000/films');
   }
